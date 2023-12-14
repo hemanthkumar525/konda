@@ -1,0 +1,50 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Booking</title>
+    <style>
+        body {
+            background-image: url(assets/images/welcome-hero/banner.jpg);
+            
+
+            }
+
+        #app {
+            background-color: azure;
+            width: 600px;
+            height: 90nopx;
+            margin: 0 auto;
+        }
+        button{
+            text-align: center;
+            
+            padding-left: -10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>Hotel Booking</h1>
+        <label for="checkinDate">Check-in Date:</label>
+        <input type="date" id="checkinDate">
+
+        <label for="checkoutDate">Check-out Date:</label>
+        <input type="date" id="checkoutDate">
+
+        <button onclick="searchHotels()">Book the Room</button>
+
+        <div id="results"></div>
+    </div>
+
+    <script>
+        // script.js
+function searchHotels() {
+    
+    alert('Room Booked');
+}
+    </script>
+</body>
+</html>

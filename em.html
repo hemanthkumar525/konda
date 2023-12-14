@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurant Page</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: purple;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+      color: palevioletred;
+    }
+    tbody{
+      background-color: wheat;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    .menu-item {
+      cursor: pointer;
+    }
+
+    #order-list {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Restaurant Menu</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="menu-item" onclick="addToOrder('Chicken Biryani', 120.00)">
+        <td>Chicken Biryani</td>
+        <td>₹120.00</td>
+      </tr>
+      <tr class="menu-item" onclick="addToOrder('Chicken Haleem', 210.00)">
+        <td>Chicken Haleem</td>
+        <td>₹210.00</td>
+      </tr>
+      <tr class="menu-item" onclick="addToOrder('Chicken 65', 160.00)">
+        <td>Chicken 65</td>
+        <td>₹160.00</td>
+      </tr>
+      <!-- Add more menu items as needed -->
+    </tbody>
+  </table>
+
+  <h2>Your Order</h2>
+  <ul id="order-list"></ul>
+
+  <button onclick="submitOrder()">Submit Order</button>
+
+  <script>
+    // Array to store the order
+    let order = [];
+
+    // Function to add an item to the order
+    function addToOrder(item, price) {
+      order.push({ item, price });
+      updateOrderList();
+    }
+
+    // Function to update the order list on the page
+    function updateOrderList() {
+      const orderList = document.getElementById('order-list');
+      // Clear the existing list
+      orderList.innerHTML = '';
+
+      // Add each item to the list
+      order.forEach((item) => {
+        const listItem = document.createElement('li');
+        listItem.textContent = `${item.item} - $${item.price.toFixed(2)}`;
+        orderList.appendChild(listItem);
+      });
+    }
+
+    // Function to submit the order
+    function submitOrder() {
+      if (order.length === 0) {
+        alert('Your order is empty. Please add items to your order.');
+      } else {
+        alert('Order placed! Thank you for your order.');
+        // Reset the order array after placing the order
+        order = [];
+        updateOrderList();
+      }
+    }
+  </script>
+
+</body>
+</Chicken Biryani
